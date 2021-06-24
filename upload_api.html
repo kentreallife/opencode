@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <br>
+        <form id="form">
+            <label id="lbl-name">Name : </label>
+            <input id="name" type="text" name="name">
+
+            <label id="lbl-age">Age : </label>
+            <input id="age" type="text" name="email">
+
+            <input id="submit" type="button" name="submit" value="Post Data">
+        </form>
+
+        <label id="lbl">Data from GET</label>:
+        <button id="getdata">Get Data</button>
+    </body>
+
+    <script type="text/javascript">
+
+        // Click event for get method/button
+        $('#getdata').click(function(){ 
+            $.ajax({
+                 // method
+                 type: "GET",
+                 // expected return type
+                 dataType: "json",
+                 // end-point url
+                 url: "",
+                 // on success
+                 success: function(data){        
+                    console.log("Success", data);
+                    // setting label value
+                    $('#lbl').html(data["body"])
+                 },
+                 // on failure
+                 error: function(data){        
+                    console.log("Error", data);
+                 }
+             });
+        });
+
+        $('#submit').click(function(){ 
+            // fetching form data
+            var formData = {name: $("#name").val(),
+                            age: $("#age").val()}
+
+             $.ajax({ 
+                 // method
+                 type: "POST",
+                 // content-type
+                 contentType: "application/json",
+                 // payload
+                 data: JSON.stringify(formData),
+                 // endpoint url
+                 url: "",
+                 // on success
+                 success: function(data){        
+                    console.log("Success", data);
+                 },
+                 // on error
+                 error: function(data){        
+                    console.log("Error", data);
+                 }
+             });
+        });
+
+    </script>
+
+</html>
