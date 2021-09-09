@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.button {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  margin: 1;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+
+
+}
+.btn--short{
+	width: 200px
+}
+.btn-pink{
+	background-color: #8f71ff;
+	color: #fff;
+}
+.btn-pink:hover {
+  background-color: #6B56BF;
+}
+
+
+
+.l-grid{
+	overflow: hidden;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.l-grid-item{
+	float: left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+nav {
+    grid-area: left;
+}
+aside {
+    grid-area: right;
+}
+footer {
+    grid-area: footer;
+}
+@media screen and (max-width: 1000px) {
+    body {
+        grid-template:
+            "header" 150px
+            "center" 1fr
+            "left  "
+            "right "
+            "footer" 300px;
+    }
+}
